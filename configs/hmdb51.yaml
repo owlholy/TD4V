@@ -1,0 +1,71 @@
+resume:
+pretrain:
+seed: 1024
+data:
+    dataset: diving48  # hmdb51  ucf101  diving48
+    modality: RGB
+    num_segments: 8    # 视频分段的数量
+    seg_length: 1   #每个视频段包含的帧数。
+    batch_size: 16  # 32
+    workers: 4
+    num_classes: 51
+    image_tmpl: '{:06d}.jpg'  # {:06d}.jpg  # img_{:05d}.jpg
+    train_root:
+    val_root:
+    train_list:
+    val_list:
+    label_list:
+    input_size: 224
+    random_shift: True
+    num_sample: 1
+    rand_aug: False
+    rand_erase: False
+network:
+    arch: ViT-B/16
+    init: True
+    tm: False # localuni t1d atm False
+    drop_out: 0.0 
+    emb_dropout: 0.0 
+    type: clip_sth
+    sim_header: None  # Transf   None
+    joint_st: False
+    drop_fc: 0
+    n_emb: 320
+    side_dim: 320
+    fix_clip: False
+    my_fix_clip: True
+    sync_bn: False
+    fine_tuning: false
+    DA_ratio: 1/6
+    t_ratio: 1
+    sample_mode: "CNN"
+    pyramid:
+        n_embs: [96, 96, 192, 192, 384, 384, 384, 384, 384, 384, 768, 768]
+        # [96, 96, 192, 192, 384, 384, 384, 384, 384, 384, 768, 768]  # mlp = 1
+        # [64, 64, 128, 128, 256, 256, 256, 256, 256, 256, 512, 512]  # 3
+        # [96, 96, 192, 192, 192, 384, 384, 384, 768, 768, 768, 768]  # mlp = 0
+        # [96, 96, 192, 192, 384, 384, 384, 384, 384, 768, 768, 768]  # mlp = 1/4
+        # [96, 96, 96, 96, 192, 192, 192, 384, 384, 384, 768, 768]  # mlp = 2
+        # [96, 96, 96, 96, 192, 192, 192, 192, 384, 384, 384, 768]  # mlp = 4
+        mlp_ratio: 1
+solver:
+    type: cosine
+    epochs: 30
+    start_epoch: 0
+    epoch_offset: 0
+    optim: adamw
+    lr: 1.e-3  # 1.e-3
+    lr_warmup_step: 4
+    weight_decay: 0.15
+    betas: [0.9, 0.999]
+    loss_type: CE
+    evaluate: False
+    clip_ratio: 1
+    grad_accumulation_steps: 1
+    # mixup: True
+    smoothing: 0.1
+    layer_decay: 1.0 # 0.7
+logging:
+    print_freq: 10
+    eval_freq: 1
+    skip_epoch: [1,3,4,5,7,9]
