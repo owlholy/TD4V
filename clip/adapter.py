@@ -3,7 +3,7 @@ from fractions import  Fraction
 from .base_function import *
 
 
-class TD4V(nn.Module):  # 原版 DAdapter
+class TD4V(nn.Module):
     def __init__(self, dim, adapter_scalar=0., drop_path=0., T=8, scale=1., sample_mode="FC"):
         super().__init__()
         self.dim = dim
