@@ -22,3 +22,9 @@ Parameter-Efficient Transfer Learning (PETL) in video action recognition (VAR) e
 - |--train_vision.py  // here can change other settings
 - |--ReadMe.md
 - |--...
+# Train your TD4V for side-tuning
+- set your dir of dataset in configs/ssv2.yaml
+- run the following command to run the model.
+```sh
+bash scripts/run_train_vision.sh --config configs/ssv2.yaml
+```
