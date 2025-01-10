@@ -4,8 +4,8 @@ seed: 1024
 data:
     dataset: somethingv2
     modality: RGB
-    num_segments: 8    # 视频分段的数量
-    seg_length: 1   #每个视频段包含的帧数。
+    num_segments: 8
+    seg_length: 1
     batch_size: 16
     workers: 4
     num_classes: 174
