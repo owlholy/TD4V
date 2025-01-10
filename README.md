@@ -11,15 +11,14 @@ Parameter-Efficient Transfer Learning (PETL) in video action recognition (VAR) e
 - dotmap
 - yaml
 # Structure Description
-|-clip  # our main code
- |-__init__.py
- |-adapter.py  # where the core data of our TD4V at
- |-...  # other main code
-|-configs  # where can change experimental settings
- |-hmdb51.yaml  # hmdb51 and ucf101
- |-ssv2.yaml  # ssv2
+|-clip  // our main code
+ |-adapter.py  // where the core data of our TD4V at
+ |-...  // other main code
+|-configs  // where can change experimental settings
+ |-hmdb51.yaml  // hmdb51 and ucf101
+ |-ssv2.yaml  // ssv2
 |-scripts
- |-run_train_vision.sh  # run the code by sh
-|-train_vision.py  # here can change other settings
+ |-run_train_vision.sh  // run the code by sh
+|-train_vision.py  // here can change other settings
 |-ReadMe.md
 |-...
